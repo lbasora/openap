@@ -32,7 +32,7 @@ import numpy as np
 class Generator(object):
     """Generate trajectory using WRAP model."""
 
-    def __init__(self, ac, eng=None):
+    def __init__(self, ac, eng=None, **kwargs):
         """Intitialize the generator.
 
         Args:
@@ -54,7 +54,7 @@ class Generator(object):
             self.eng = eng
         self.engdict = prop.engine(self.eng)
 
-        self.wrap = WRAP(self.ac)
+        self.wrap = WRAP(self.ac, **kwargs)
         # self.thrust = Thrust(self.ac, self.eng)
         # self.drag = Drag(self.ac)
         # self.fuelflow = Thrust(self.ac, self.eng)
